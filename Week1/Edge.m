@@ -7,6 +7,7 @@ size(im)
 % im_R = im(:, :, 1);
 % im_G = im(:, :, 2);
 % im_B = im(:, :, 3);
+% 0.2989 * R + 0.5870 * G + 0.1140 * B
 
 im = rgb2gray(im/255);
 size(im)
