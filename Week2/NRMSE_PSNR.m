@@ -3,9 +3,9 @@
 x = double(imread('./meow.jpg'));
 y = double(imread('./meowmeow.jpg'));
 
-
 NRMSE = CalNRMSE(x, y);
 PSNR = CalPSNR(x, y);
+
 
 % Assume x and y are color images, and x and y have the same size
 function A = CalNRMSE(x,y)

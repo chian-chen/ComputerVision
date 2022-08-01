@@ -19,6 +19,11 @@ Cr = T(3,1)*im_R + T(3,2)*im_G + T(3,3)*im_B;
 % original img
 figure, image(im/255), title('Alpha = 1 (original)');
 
+% alpha = 0.2
+Y_20 = ColorIntensity(0.2, Y);
+im_20 = YCbCrtoRGB(T_in, Y_20, Cb, Cr);
+figure, image(im_20/255), title('Alpha = 0.2 (lighten)');
+
 % alpha = 0.5
 Y_50 = ColorIntensity(0.5, Y);
 im_50 = YCbCrtoRGB(T_in, Y_50, Cb, Cr);
@@ -38,6 +43,11 @@ figure, image(im_125/255), title('Alpha = 1.25 (darken)');
 Y_150 = ColorIntensity(1.5, Y);
 im_150 = YCbCrtoRGB(T_in, Y_150, Cb, Cr);
 figure, image(im_150/255), title('Alpha = 1.5 (darken)');
+
+% alpha = 2.0
+Y_200 = ColorIntensity(2.0, Y);
+im_200 = YCbCrtoRGB(T_in, Y_200, Cb, Cr);
+figure, image(im_200/255), title('Alpha = 2.0 (darken)');
 
 
 function img = YCbCrtoRGB(T_in, Y, Cb, Cr)
