@@ -28,7 +28,7 @@ title('Plot DFT(x[n]) vs n');
 ylabel('DFT(x [ n ])');
 xlabel('n');
 
-y = fftshift(DFT_x);
+y = fftshift(DFT_x * delta_t);
 n = -N1:1:N1;
 f = fs/N .* (n);
 figure;

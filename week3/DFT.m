@@ -1,5 +1,6 @@
 % read .wav file
 [x, fs] = audioread('./short_material.wav'); 
+delta_t = 1/fs;
 N =  size(x,1);
 N1 = floor(N/2);
 
@@ -18,17 +19,15 @@ subplot(2,1,2);  plot(time, x(:,2));  xlim([time(1),time(end)]);
 
 % fft reference: https://www.mathworks.com/help/matlab/ref/fft.html
 DFT_x = abs(fft(x));
-n = 0:1:N-1;
+n = 0:N-1;
 figure;
 subplot(2,1,1);  plot(n, DFT_x(:,1));  xlim([n(1),n(end)]);
 subplot(2,1,2);  plot(n, DFT_x(:,2));  xlim([n(1),n(end)]);
 
 % fftshift reference: https://www.mathworks.com/help/matlab/ref/fftshift.html
-y = fftshift(DFT_x);
+y = fftshift(DFT_x * delta_t);
 m = n - N1;
 f = m*(fs/N);
 figure;
-plot(f, y);
-title('Plot y[f] vs f');
-ylabel('y [ f ]');
-xlabel('f');
+subplot(2,1,1);  plot(f, y(:,1));  xlim([f(1),f(end)]);
+subplot(2,1,2);  plot(f, y(:,2));  xlim([f(1),f(end)]);
