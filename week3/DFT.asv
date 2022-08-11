@@ -1,0 +1,47 @@
+% read .wav file
+[x, fs] = audioread('./short_material.wav'); 
+shape = size(x);
+N = shape(1);
+N1 = (N-1)/2;
+
+time = 0:N-1;
+time = time/fs;
+
+% from 聲音檔，影像檔，和 Video 檔的讀與寫 (by Matlab)
+figure;
+subplot(2,1,1);  plot(time, x(:,1));  xlim([time(1),time(end)]);
+subplot(2,1,2);  plot(time, x(:,2));  xlim([time(1),time(end)]);
+
+% Try different ways to sound(x)
+% sound(x);
+% sound(x, fs);
+% soundsc(x, fs);
+
+% c
+DFT_x = abs(fft(x));
+n = 0:1:shape(1)-1;
+figure;
+subplot(2,1,1);  plot(n, DFT_x(:,1));
+subplot(2,1,2);  plot(n, DFT_x(:,2));
+
+
+y = fftshift(DFT_x);
+n = -N1:1:N1;
+f = fs/N .* (n);
+figure;
+plot(f, y);
+title('Plot y[f] vs f');
+ylabel('y [ f ]');
+xlabel('f');
+
+
+
+% function y = my_fft(x, N)
+%     X = zeros(1,N);
+%     for i = 1:N
+%         for k = 1:N
+%             X(i) = X(i) + x(k)*exp(-1i*(2*pi/N)*(i-1)*(k-1)); 
+%         end
+%     end
+%     y = X;
+% end
