@@ -18,9 +18,9 @@ xlabel('n');
 
 % parameters for h[n] and noise
 
-L = 10;
-an = 0.05;
-sigma = 1;
+L = 20;
+an = 0.5;
+sigma = 0.5;
 
 % h[n]
 
