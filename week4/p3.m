@@ -51,7 +51,6 @@ xlabel('n');
 
 smoother = conv(x1, h, 'same');
 
-
 figure;
 stem(n, smoother);
 xlim([n(1),n(end)]);
