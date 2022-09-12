@@ -22,6 +22,9 @@ C = A * A';
 [V,D] = eig(B);
 [U,O] = eig(C);
 
+U(abs(U) < 1e-10) = 0;
+V(abs(V) < 1e-10) = 0;
+
 B_check = V * D * V';
 C_check = U * O * U';
 
@@ -30,6 +33,7 @@ U = flip(U, 2);
 
 S1 = U' * A * V;
 S = abs(S1);
+S(abs(S) < 1e-10) = 0;
 
 for i = 1:size(S1, 2)
     if(S1(i, i) < 0)
