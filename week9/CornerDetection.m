@@ -1,6 +1,6 @@
 % im
 
-I = double(imread('./RnzgH.jpg'));
+I = double(imread('./Lenna.jpg'));
 I = rgb2gray(I/255);
 
 figure, imshow(I);
