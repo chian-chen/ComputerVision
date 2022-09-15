@@ -22,7 +22,7 @@ figure, imshow(Y);
 % w use built-in function 
 % ref : https://es.mathworks.com/help/images/ref/fspecial.html
 
-w = fspecial('gaussian', [30 30], 4);
+w = fspecial('gaussian', [7 7], 4);
 w = w .* 2 .* pi .* 16;
 surf(w)
 
