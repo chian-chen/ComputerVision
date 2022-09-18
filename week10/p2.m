@@ -23,7 +23,7 @@ imshow(x);
 
 % L_0
 
-L_0 = sum(sum(x>0));
+L_0 = sum(sum(abs(x)>0));
 
 % L_1
 
@@ -35,7 +35,7 @@ L_2 = sum(sum(x.^2));
 
 % L_inf
 
-L_inf = max(max(x));
+L_inf = max(max(abs(x)));
 
 
 
