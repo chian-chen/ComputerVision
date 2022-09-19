@@ -62,23 +62,3 @@ subplot(3,1,3);  plot(n, filter);  xlim([n(1),n(end)]);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
