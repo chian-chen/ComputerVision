@@ -4,6 +4,8 @@ x = double(imread('./Lenna.jpg'));
 x = rgb2gray(x/255);
 
 [m, n] = size(x);
+cm = m/2;
+cn = n/2;
 
 figure; imshow(x);
 
@@ -14,9 +16,11 @@ Pa = zeros(m, n);
 
 for i = 1:m
     for j = 1:n
-        index = Ta\[i ; j];
-        m1 = index(1,1); n1 = index(2,1);
-        m0 = floor(m1);  n0 = floor(n1);
+        index = Ta\[i-cm ; j-cn];
+        m1 = index(1,1) + cm;
+        n1 = index(2,1) + cn;
+        m0 = floor(m1);
+        n0 = floor(n1);
         
         % handle edge case
         if m0 <= 0 || n0 <= 0 || m0 >= m || n0 >= n
@@ -45,9 +49,11 @@ Pb = zeros(m, n);
 
 for i = 1:m
     for j = 1:n
-        index = Tb\[i ; j];
-        m1 = index(1,1); n1 = index(2,1);
-        m0 = floor(m1);  n0 = floor(n1);
+        index = Tb\[i-cm ; j-cn];
+        m1 = index(1,1) + cm;
+        n1 = index(2,1) + cn;
+        m0 = floor(m1);
+        n0 = floor(n1);
         
         % handle edge case
         if m0 <= 0 || n0 <= 0 || m0 >= m || n0 >= n
